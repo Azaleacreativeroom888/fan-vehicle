@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>のりものノート</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal: #008b8b;
+  --teal-deep: #005f5f;
+  --sand: #deb887;
+  --sand-light: #f3e3c9;
+  --ink: #0d3535;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif;
+  background: var(--sand);
+  color: var(--ink);
+  line-height: 1.9;
+}
+a { color: inherit; }
+a:focus-visible { outline: 3px solid var(--teal-deep); outline-offset: 3px; }
+
+/* header */
+header {
+  background: var(--teal);
+  color: var(--sand-light);
+  position: sticky; top: 0; z-index: 10;
+}
+.bar {
+  max-width: 960px; margin: 0 auto; padding: 12px 20px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+}
+.logo { font-weight: 900; font-size: 1.3rem; text-decoration: none; letter-spacing: .08em; }
+nav ul { list-style: none; display: flex; gap: 6px; flex-wrap: wrap; }
+nav a {
+  display: block; padding: 4px 14px; border-radius: 999px;
+  text-decoration: none; font-weight: 700; font-size: .95rem;
+}
+nav a:hover { background: rgba(243,227,201,.2); }
+nav a[aria-current="page"] { background: var(--sand); color: var(--teal-deep); }
+
+/* hero */
+.hero { background: var(--teal); color: var(--sand-light); padding: 56px 20px 0; overflow: hidden; }
+.hero-inner { max-width: 960px; margin: 0 auto; }
+.hero h1 { font-size: clamp(2.2rem, 7vw, 3.8rem); font-weight: 900; line-height: 1.3; letter-spacing: .06em; }
+.hero p { margin-top: 12px; max-width: 34em; font-size: 1.05rem; }
+.track { margin-top: 36px; display: block; width: 100%; height: auto; }
+.train { animation: arrive 3.2s cubic-bezier(.2,.7,.2,1) 1 both; }
+@keyframes arrive { from { transform: translateX(-640px); } to { transform: translateX(0); } }
+@media (prefers-reduced-motion: reduce) { .train { animation: none; } html { scroll-behavior: auto; } }
+
+/* main */
+main { max-width: 960px; margin: 0 auto; padding: 56px 20px 24px; }
+h2 { font-size: 1.6rem; font-weight: 900; color: var(--teal-deep); margin-bottom: 8px; }
+.lead { margin-bottom: 28px; }
+
+/* ticket tiles */
+.tickets { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 20px; list-style: none; }
+.ticket {
+  background: var(--sand-light);
+  border-left: 14px solid var(--teal);
+  border-radius: 6px 14px 14px 6px;
+  padding: 18px 20px 18px 18px;
+  position: relative;
+}
+.ticket::before, .ticket::after {
+  content: ""; position: absolute; left: -22px; width: 16px; height: 16px; border-radius: 50%; background: var(--sand);
+}
+.ticket::before { top: -8px; }
+.ticket::after { bottom: -8px; }
+.ticket h3 { font-size: 1.25rem; font-weight: 900; }
+.ticket .route { font-size: .85rem; color: var(--teal-deep); font-weight: 700; }
+.ticket p { margin-top: 6px; font-size: .95rem; line-height: 1.7; }
+
+/* guide */
+.guide { margin-top: 56px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+.guide a {
+  display: block; text-decoration: none; background: var(--teal); color: var(--sand-light);
+  padding: 22px 24px; border-radius: 14px;
+}
+.guide a:hover { background: var(--teal-deep); }
+.guide strong { display: block; font-size: 1.2rem; }
+.guide span { font-size: .92rem; }
+
+footer { background: var(--teal); color: var(--sand-light); text-align: center; padding: 22px 20px; margin-top: 56px; font-size: .9rem; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a class="logo" href="index.html">のりものノート</a>
+    <nav aria-label="メインメニュー">
+      <ul>
+        <li><a href="index.html" aria-current="page">ホーム</a></li>
+        <li><a href="blog.html">ブログ</a></li>
+        <li><a href="gallery.html">ギャラリー</a></li>
+        <li><a href="about.html">このサイトについて</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <h1>電車も、車も、<br>船も、飛行機も。</h1>
+    <p>乗り物について勉強したことを記録して、描いた漫画やイラストも一緒に並べていくサイトです。</p>
+  </div>
+  <svg class="track" viewBox="0 0 960 150" role="img" aria-label="線路を走る電車のイラスト">
+    <g class="train">
+      <g fill="#f3e3c9">
+        <rect x="40" y="30" width="250" height="78" rx="14"/>
+        <rect x="298" y="30" width="250" height="78" rx="14"/>
+        <path d="M556 108 V52 Q556 30 582 30 H700 Q736 34 750 70 L756 108 Z"/>
+      </g>
+      <g fill="#deb887">
+        <rect x="40" y="82" width="250" height="10"/>
+        <rect x="298" y="82" width="250" height="10"/>
+        <rect x="556" y="82" width="196" height="10"/>
+      </g>
+      <g fill="#005f5f">
+        <rect x="62" y="44" width="48" height="28" rx="5"/><rect x="124" y="44" width="48" height="28" rx="5"/>
+        <rect x="186" y="44" width="48" height="28" rx="5"/>
+        <rect x="320" y="44" width="48" height="28" rx="5"/><rect x="382" y="44" width="48" height="28" rx="5"/>
+        <rect x="444" y="44" width="48" height="28" rx="5"/>
+        <rect x="578" y="44" width="48" height="28" rx="5"/><rect x="640" y="44" width="48" height="28" rx="5"/>
+        <path d="M700 44 H714 Q728 52 734 72 H700 Z"/>
+      </g>
+      <g fill="#deb887"><circle cx="740" cy="98" r="5"/></g>
+      <g fill="#0d3535">
+        <circle cx="90" cy="118" r="12"/><circle cx="240" cy="118" r="12"/>
+        <circle cx="348" cy="118" r="12"/><circle cx="498" cy="118" r="12"/>
+        <circle cx="606" cy="118" r="12"/><circle cx="700" cy="118" r="12"/>
+      </g>
+    </g>
+    <rect x="0" y="132" width="960" height="6" fill="#deb887"/>
+    <g fill="#deb887">
+      <rect x="20" y="138" width="14" height="12"/><rect x="100" y="138" width="14" height="12"/>
+      <rect x="180" y="138" width="14" height="12"/><rect x="260" y="138" width="14" height="12"/>
+      <rect x="340" y="138" width="14" height="12"/><rect x="420" y="138" width="14" height="12"/>
+      <rect x="500" y="138" width="14" height="12"/><rect x="580" y="138" width="14" height="12"/>
+      <rect x="660" y="138" width="14" height="12"/><rect x="740" y="138" width="14" height="12"/>
+      <rect x="820" y="138" width="14" height="12"/><rect x="900" y="138" width="14" height="12"/>
+    </g>
+  </svg>
+</section>
+
+<main>
+  <section aria-labelledby="kinds">
+    <h2 id="kinds">乗り物の行き先</h2>
+    <p class="lead">調べていく乗り物のジャンルです。勉強が進んだら、ここも増やしていきます。</p>
+    <ul class="tickets">
+      <li class="ticket"><div class="route">陸 / 線路</div><h3>電車・鉄道</h3><p>車両の種類、路線の歴史、駅や信号のしくみ。</p></li>
+      <li class="ticket"><div class="route">陸 / 道路</div><h3>車・バイク</h3><p>エンジンと電気、車体の形、道路を走るルール。</p></li>
+      <li class="ticket"><div class="route">海 / 水の上</div><h3>船</h3><p>船が浮くしくみ、客船と貨物船のちがい。</p></li>
+      <li class="ticket"><div class="route">空 / 航路</div><h3>飛行機・ヘリ</h3><p>飛ぶ原理、機体の種類、空港の仕事。</p></li>
+    </ul>
+  </section>
+
+  <section class="guide" aria-label="ページ案内">
+    <a href="blog.html"><strong>ブログ</strong><span>勉強の進捗を日付と日記で記録しています。</span></a>
+    <a href="gallery.html"><strong>ギャラリー</strong><span>乗り物をテーマにした漫画とイラストを展示しています。</span></a>
+    <a href="about.html"><strong>このサイトについて</strong><span>サイトの目的と、作っている人の紹介です。</span></a>
+  </section>
+</main>
+
+<footer>&copy; のりものノート</footer>
+
+</body>
+</html>
