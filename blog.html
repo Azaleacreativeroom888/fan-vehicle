@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ブログ | のりものノート</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal: #008b8b;
+  --teal-deep: #005f5f;
+  --sand: #deb887;
+  --sand-light: #f3e3c9;
+  --ink: #0d3535;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif;
+  background: var(--sand);
+  color: var(--ink);
+  line-height: 1.9;
+}
+a { color: inherit; }
+a:focus-visible { outline: 3px solid var(--teal-deep); outline-offset: 3px; }
+
+/* header */
+header { background: var(--teal); color: var(--sand-light); position: sticky; top: 0; z-index: 10; }
+.bar {
+  max-width: 960px; margin: 0 auto; padding: 12px 20px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+}
+.logo { font-weight: 900; font-size: 1.3rem; text-decoration: none; letter-spacing: .08em; }
+nav ul { list-style: none; display: flex; gap: 6px; flex-wrap: wrap; }
+nav a { display: block; padding: 4px 14px; border-radius: 999px; text-decoration: none; font-weight: 700; font-size: .95rem; }
+nav a:hover { background: rgba(243,227,201,.2); }
+nav a[aria-current="page"] { background: var(--sand); color: var(--teal-deep); }
+
+/* page title */
+.title { background: var(--teal); color: var(--sand-light); padding: 40px 20px 32px; }
+.title-inner { max-width: 620px; margin: 0 auto; }
+.title h1 { font-size: clamp(1.8rem, 6vw, 2.6rem); font-weight: 900; letter-spacing: .06em; }
+.title p { margin-top: 6px; }
+
+/* feed */
+main { max-width: 620px; margin: 0 auto; padding: 32px 20px 24px; }
+.feed { background: var(--sand-light); border-radius: 16px; overflow: hidden; }
+.post { padding: 20px 24px; border-bottom: 2px solid var(--sand); }
+.post:last-child { border-bottom: none; }
+.post time { display: block; font-size: .85rem; font-weight: 700; color: var(--teal-deep); }
+.post p { margin-top: 4px; white-space: pre-line; }
+
+footer { background: var(--teal); color: var(--sand-light); text-align: center; padding: 22px 20px; margin-top: 40px; font-size: .9rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a class="logo" href="index.html">のりものノート</a>
+    <nav aria-label="メインメニュー">
+      <ul>
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="blog.html" aria-current="page">ブログ</a></li>
+        <li><a href="gallery.html">ギャラリー</a></li>
+        <li><a href="about.html">このサイトについて</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="title">
+  <div class="title-inner">
+    <h1>ブログ</h1>
+    <p>乗り物の勉強の進捗を、日付と日記で残していきます。</p>
+  </div>
+</section>
+
+<main>
+  <div class="feed">
+    <article class="post">
+      <time datetime="2026-10-28">2026年10月28日</time>
+      <p>今日から乗り物のサイトを作り始めた。まずはトップページから。電車が走ってくるアニメーションがいい感じになった。</p>
+    </article>
+    <article class="post">
+      <time datetime="2026-10-27">2026年10月27日</time>
+      <p>新幹線の先頭車両の形が、なぜあんなに長いのかを調べた。トンネルに入るときの音を小さくするためらしい。</p>
+    </article>
+    <article class="post">
+      <time datetime="2026-10-25">2026年10月25日</time>
+      <p>船はなぜ鉄でできているのに浮くのか。重さより、押しのけた水の重さが大事ということを勉強した。</p>
+    </article>
+    <article class="post">
+      <time datetime="2026-10-22">2026年10月22日</time>
+      <p>飛行機が飛ぶ原理を読んだ。翼の上と下で空気の流れが変わって、上向きの力が生まれる。図を描いてみたら少しわかった。</p>
+    </article>
+  </div>
+</main>
+
+<footer>&copy; のりものノート</footer>
+
+</body>
+</html>
